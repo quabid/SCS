@@ -8,7 +8,7 @@ import * as ui from "./ui.js";
 
 const getTurnServerCredentials = async () => {
   const responseData = await axios.get("/api/get-turn-credentials");
-  log("\n\tTURN Credentials\n" + responseData.data.iceServers);
+  log("\n\tTURN Credentials\n" + responseData.data);
   webRTCHandler.setTurnServers(responseData.data.iceServers);
 };
 
