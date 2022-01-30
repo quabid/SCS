@@ -1,0 +1,78 @@
+.dashboard-container,
+.call-container,
+.messenger-container {
+  position: relative;
+  background-color: #0052c9;
+  color: rgb(255, 255, 255);
+  border: solid 1pt rgb(12, 100, 188);
+  border-radius: 15px;
+  padding: 5px;
+}
+
+/* Dashboard container */
+.logo-container {
+  text-align: center;
+  margin: 0;
+}
+
+.personal-code-chat-title-container,
+.personal-code-chat-button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.personal-code-title-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+/* Call container */
+.call-container {
+  position: relative;
+}
+
+.local-video-container {
+  position: relative;
+  width: 100%;
+}
+
+.call-buttons-container,
+.video-recording-buttons-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.finish-chat-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Messenger container */
+.messages-container,
+.new-message-input,
+.send-message-button {
+  border: solid 1pt white;
+  border-radius: 15px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.messages-container {
+  height: 450px;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+}
+
+.new-message-container > div.input-group {
+  margin: 0;
+  border: solid 1pt white;
+  border-radius: 15px;
+}

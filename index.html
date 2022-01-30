@@ -1,0 +1,202 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMT</title>
+    <script src="https://kit.fontawesome.com/e13fb8b113.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/foundation.css">
+</head>
+
+<body>
+    <div id="alert" class="hide" data-closable>
+        <h5 id="alert-title"></h5>
+        <p id="alert-body"></p>
+        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="main-container grid-container fluid">
+        <div class="grid-x grid-margin-x grid-margin-y">
+            <div class="dashboard-container cell large-4 medium-12">
+                <div class="dashboard-components grid-x grid-margin-y" style="margin:5px;padding:5px;">
+                    <div class="logo-container cell small-12">
+                        <i class="fas fa-users fa-fw fa-5x"></i>
+                    </div>
+
+                    <div class="personal-code-container cell small-12">
+                        <div class="grid-x">
+                            <div class="personal-code-title-container cell small-9">
+                                <p class="personal-code-title">
+                                    Personal code
+                                </p>
+                                <p class="lead" id="personal-code-paragraph">000000</p>
+                            </div>
+
+                            <div class="class cell small-3">
+                                <button type="button" id="personal-code-copy-button">
+                                    <i class="fas fa-copy fa-fw fa-2x"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="personal-code-connecting-input-container cell small-12">
+                        <div class="input-group">
+                            <span class="input-group-label">
+                                <i class="fas fa-id-card fa-fw fa-2x"></i>
+                            </span>
+                            <input type="text" class="input-group-field" id='personal-code-input'></input>
+                        </div>
+                    </div>
+
+                    <div class="personal-code-chat-container cell small-12">
+                        <div class="personal-code-chat-title-container">
+                            <p class="personal-chat-title-paragraph">
+                                Chat with personal code
+                            </p>
+                        </div>
+
+                        <div class="personal-code-chat-button-container">
+                            <div class="grid-x grid-margin-x button-container">
+                                <button class="cell auto" type="button" id="personal-code-chat-button">
+                                    <i class="fas fa-comment fa-fw fa-3x"></i>
+                                </button>
+
+                                <button class="cell auto" type="button" id="personal-code-video-button">
+                                    <i class="fas fa-video fa-fw fa-3x"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stranger-code-chat-container cell small-12">
+                        <div class="grid-x">
+                            <div class="stranger-code-chat-title-container cell small-12">
+                                <p class="stranger-chat-title-paragraph">
+                                    Chat with strangers
+                                </p>
+                            </div>
+
+                            <div class="stranger-code-chat-button-container cell small-12">
+                                <div class="grid-x grid-margin-x button-container">
+                                    <button class="cell auto" type="button" id="stranger-code-chat-button">
+                                        <i class="fas fa-comment fa-fw fa-3x"></i>
+                                    </button>
+
+                                    <button class="cell auto" type="button" id="stranger-code-video-button">
+                                        <i class="fas fa-video fa-fw fa-3x"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="allow-strangers-to-connect-checkbox-container cell small-12">
+
+                                <p class="allow-strangers-paragraph cell small-10">
+                                    Allow strangers to connect
+
+                                    <input type="checkbox" class="input-group-field" id="allow-strangers-checkbox">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='dashboard-blur display-none' id='dashboard-blur'></div>
+            </div>
+
+            <div class="call-container cell large-4 medium-12 grid-x grid-margin-y" style="justify-content: center;">
+                <div id="video-placeholder" class="video-placeholder cell small-12">
+                    <i class="fas fa-image fa-fw fa-5x"></i>
+                </div>
+
+                <video class="cell small-12 remote-video display-none" autoplay id="remote-video"></video>
+
+                <div class="cell small-12 local-video-container">
+                    <video class="local-video" muted autoplay id="local-video"></video>
+                </div>
+
+                <div class="call-buttons-container display-none cell small-12" id="call-buttons">
+                    <button type="button" class="call-button-small" id="mic-button">
+                        <i class="fas fa-microphone fa-fw fa-2x"></i>
+                    </button>
+                    <button type="button" class="call-button-small" id="camera-button">
+                        <i class="fas fa-camera fa-fw fa-2x"></i>
+                    </button>
+                    <button type="button" class="call-button-small" id="screen-sharing-button">
+                        <i class="fas fa-desktop fa-fw fa-2x"></i>
+                    </button>
+                    <button type="button" class="call-button-small" id="start-recording-button">
+                        <i class="fas fa-dot-circle fa-fw fa-2x"></i>
+                    </button>
+                </div>
+
+                <div id="finish-chat-button-container" class="finish-chat-button-container display-none">
+                    <button class="call-button-large" id="finish-chat-call-button">
+                        <i class="fas fa-phone-slash fa-fw fa-2x"></i>
+                    </button>
+                </div>
+
+                <div class="video-recording-buttons-container display-none cell small-12">
+                    <button type="button" id="stop-recording-button">
+                        <i class="fas fa-stop fa-fw fa-2x"></i>
+                    </button>
+                    <button type="button" id="pause-recording-button">
+                        <i class="fas fa-pause fa-fw fa-2x"></i>
+                    </button>
+                    <button type="button" id="resume-recording-button">
+                        <i class="fas fa-play fa-fw fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="messenger-container cell large-4 medium-12 grid-x grid-margin-x grid-margin-y">
+                <div class="messages-container cell small-12" id="messages-container"></div>
+
+                <div class="new-message-container cell small-12 display-none grid-x" id="new-message">
+
+                    <div class="cell small-12">
+                        <div class="input-group">
+                            <input class="input-group-field" id="new-message-input" type="text"
+                                placeholder="Type your message..."></input>
+
+                            <button class="button" id="send-message-button">
+                                Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialog"></div>
+    </div>
+
+</body>
+
+<script src="assets/js/vendors/vendor.js"></script>
+<script src="assets/js/vendors/foundation.js"></script>
+<script src="assets/js/utils.js" type="module"></script>
+<script>
+    $(document).foundation();
+</script>
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+<link rel="stylesheet" href="assets/css/dialog.css">
+<link rel="stylesheet" href="assets/css/containers.css">
+<link rel="stylesheet" href="assets/css/controls.css">
+<link rel="stylesheet" href="assets/css/elements.css">
+<link rel="stylesheet" href="assets/css/utils.css">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="assets/js/elements.js" type="module"></script>
+<script src="assets/js/constants.js" type="module"></script>
+<script src="assets/js/ui.js" type="module"></script>
+<script src="assets/js/wss.js" type="module"></script>
+<script src="assets/js/webrtchandler.js" type="module"></script>
+<script src="assets/js/store.js" type="module"></script>
+<script src="assets/js/main.js" type="module"></script>
+
+</html>

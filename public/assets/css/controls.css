@@ -1,0 +1,54 @@
+.dashboard-container,
+.call-container,
+.messenger-container {
+  background-color: #0052c9;
+  color: rgb(255, 255, 255);
+  border: solid 1pt rgb(12, 100, 188);
+  border-radius: 15px;
+}
+
+button {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+button > i {
+  margin: 0;
+  padding: 0;
+}
+
+button:hover,
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+button > i,
+span > i {
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+
+button > i {
+  padding: 5px 5px 5px 0;
+}
+
+span > i {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: rgb(240, 238, 250);
+  font-weight: bold;
+}
+
+span.input-group-label {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+input[type="text"]#personal-code-input {
+  margin: 0 5px;
+}

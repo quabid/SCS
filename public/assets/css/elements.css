@@ -1,0 +1,78 @@
+p.personal-code-title,
+p.lead {
+  margin: 0;
+  padding: 0;
+}
+
+p.personal-code-title {
+  font-weight: bolder;
+  font-size: 1.3rem;
+}
+
+p.personal-chat-title-paragraph,
+p.stranger-chat-title-paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+input[type="checkbox"]#allow-strangers-checkbox,
+.allow-strangers-paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+.allow-strangers-paragraph {
+  margin-top: 20px;
+}
+
+.stranger-chat-title-paragraph,
+.personal-chat-title-paragraph {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.dashboard-blur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(196, 196, 196, 0.2);
+  background-filter: blur(80px);
+}
+
+.call-components {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.local-video,
+.remote-video {
+  border: solid 1pt red;
+  display: inline-grid;
+  border-radius: 15px;
+}
+
+.local-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  margin: 0;
+  padding: 10px;
+}
+
+/* video#local-video {
+  position: absolute;
+  top: 1%;
+  left: 48%;
+  width: 50%;
+  height: 25%;
+} */
+
+/* .call-container > div,
+.call-container > video {
+  border: solid 1pt white;
+  border-radius: 15px;
+} */
