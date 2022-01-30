@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/get-turn-credentials", (req, res) => {
-  const accountSid = procees.env.ACCOUNT_SID;
+  const accountSid = process.env.ACCOUNT_SID;
   const authToken = process.env.AUTH_TOKEN;
   const client = twilio(accountSid, authToken);
   client.tokens
