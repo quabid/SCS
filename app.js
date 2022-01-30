@@ -144,6 +144,7 @@ server.listen(PORT, ADDRESS, () => {
       `\n\t\tServer listening on *:${PORT}\n\t\tServer Address: ${server._connectionKey}\n\n`
     )
   );
+//  log('\n\tTokens:\n'+JSON.stringify(process.env));
 });
 
 function logPeers() {
