@@ -479,3 +479,21 @@ div.messenger-container > div.new-message-container > input.new-message-input {
   max-width: 100%;
   max-height: 100%;
 }
+
+.me,
+.them {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+}
+
+.me {
+  background-color: rgb(157, 226, 243);
+  color: rgb(10, 10, 10);
+}
+
+.them {
+  background-color: rgb(160, 209, 233);
+  color: rgb(8, 27, 49);
+}
