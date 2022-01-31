@@ -84,23 +84,25 @@ input[type="checkbox"]#allow-strangers-checkbox,
   padding: 0;
   border-radius: 15px;
   padding: 10px;
+  justify-content: left;
 }
 
 .me {
   background-color: rgb(44, 203, 243);
   color: rgb(10, 10, 10);
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .them {
-  background-color: rgb(207, 226, 37);
+  background-color: rgb(176, 185, 94);
   color: rgb(8, 27, 49);
   align-items: flex-start;
 }
 
 .me,
 .them > p {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
   font-weight: bolder;
+  text-align: left;
 }
