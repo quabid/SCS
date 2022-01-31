@@ -74,3 +74,24 @@ addHandler(elements.screenSharingButton, "click", () => {
 
   webRTCHandler.switchBetweenCameraAndScreenSharing(screenSharingActive);
 });
+
+// messenger input
+addHandler(elements.newMessageInput, "keydown", (event) => {
+  log(`Message input activity`);
+
+  const key = event.key;
+
+  if (key === "Enter") {
+    webRTCHandler.sendMessageUsingDataChannel(event.target.value);
+    ui.appendMessage(event.target.value, true);
+    elements.newMessageInput.value = "";
+  }
+});
+
+// send message button
+addHandler(elements.sendMessageButton, "click", () => {
+  const message = elements.newMessageInput.value;
+  webRTCHandler.sendMessageUsingDataChannel(message);
+  ui.appendMessage(event.target.value, true);
+  elements.newMessageInput.value = "";
+});

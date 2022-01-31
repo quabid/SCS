@@ -1,6 +1,112 @@
+import { utimesSync } from "mz/fs";
 import * as constants from "./constants.js";
 import * as elements from "./elements.js";
 import * as utils from "./utils.js";
+
+// ui helper functions
+
+const getLeftMessage = (message) => {
+  const messageContainer = utils.newElement("div");
+  const messageParagraph = utils.newElement("p");
+  messageParagraph.innerHTML = message;
+
+  utils.appendChild(messageContainer, messageParagraph);
+  return messageContainer;
+};
+
+const getRightMessage = (message) => {
+  const messageContainer = utils.newElement("div");
+  const messageParagraph = utils.newElement("p");
+  messageParagraph.innerHTML = message;
+
+  utils.appendChild(messageContainer, messageParagraph);
+  return messageContainer;
+};
+
+const enableDashboard = () => {
+  const dashboadBlur = elements.dashboardBlur;
+
+  if (!dashboadBlur.classList.contains("display-none")) {
+    dashboadBlur.classList.add("display-none");
+  }
+};
+
+const disableDashboard = () => {
+  const dashboadBlur = elements.dashboardBlur;
+  utils.log(`\n\tDisabling the dashboard\n`);
+
+  if (dashboadBlur.classList.contains("display-none")) {
+    dashboadBlur.classList.remove("display-none");
+  }
+};
+
+const hideElement = (element) => {
+  if (!element.classList.contains("display-none")) {
+    element.classList.add("display-none");
+  }
+};
+
+const showElement = (element) => {
+  if (element.classList.contains("display-none")) {
+    element.classList.remove("display-none");
+  }
+};
+
+const showChatCallElements = () => {
+  const finishChatButtonContainer = elements.finishChatButtonContainer;
+  const newMessageContainer = elements.newMessageContainer;
+
+  showElement(finishChatButtonContainer);
+  showElement(newMessageContainer);
+  disableDashboard();
+};
+
+const hideChatCallElements = () => {
+  const finishChatButtonContainer = elements.finishChatButtonContainer;
+  const newMessageContainer = elements.newMessageContainer;
+
+  hideElement(finishChatButtonContainer);
+  hideElement(newMessageContainer);
+  enableDashboard();
+};
+
+const showVideoCallElements = () => {
+  const videoPlaceholder = elements.videoPlaceholder;
+  const callButtons = elements.callButtonsContainer;
+  const finishChatButtonContainer = elements.finishChatButtonContainer;
+  const videoButtons = elements.videoRecordingButtonsContainer;
+  const newMessageContainer = elements.newMessageContainer;
+  const remoteVideo = elements.remoteVideo;
+
+  hideElement(videoPlaceholder);
+  showElement(callButtons);
+  showElement(finishChatButtonContainer);
+  showElement(remoteVideo);
+  showElement(videoButtons);
+  showElement(newMessageContainer);
+
+  disableDashboard();
+};
+
+const hideVideoCallElements = () => {
+  const videoPlaceholder = elements.videoPlaceholder;
+  const callButtons = elements.callButtonsContainer;
+  const finishChatButtonContainer = elements.finishChatButtonContainer;
+  const videoButtons = elements.videoRecordingButtonsContainer;
+  const newMessageContainer = elements.newMessageContainer;
+  const remoteVideo = elements.remoteVideo;
+
+  showElement(videoPlaceholder);
+  hideElement(callButtons);
+  hideElement(finishChatButtonContainer);
+  hideElement(remoteVideo);
+  hideElement(videoButtons);
+  hideElement(newMessageContainer);
+
+  enableDashboard();
+};
+
+// Exported functions
 
 export const updateLocalVideo = (stream) => {
   const localVideo = elements.localVideo;
@@ -113,87 +219,15 @@ export const updateCameraButton = (cameraActive) => {
   elements.cameraButton.enabled = cameraActive ? true : false;
 };
 
-// ui helper functions
-
-const enableDashboard = () => {
-  const dashboadBlur = elements.dashboardBlur;
-
-  if (!dashboadBlur.classList.contains("display-none")) {
-    dashboadBlur.classList.add("display-none");
-  }
+export const appendMessage = (message, right = false) => {
+  const messageContainer = elements.messagesContainer;
+  const messageElement = right
+    ? getRightMessage(message)
+    : getLeftMessage(message);
+  utils.appendChild(messageContainer, messageElement);
 };
 
-const disableDashboard = () => {
-  const dashboadBlur = elements.dashboardBlur;
-  utils.log(`\n\tDisabling the dashboard\n`);
-
-  if (dashboadBlur.classList.contains("display-none")) {
-    dashboadBlur.classList.remove("display-none");
-  }
-};
-
-const hideElement = (element) => {
-  if (!element.classList.contains("display-none")) {
-    element.classList.add("display-none");
-  }
-};
-
-const showElement = (element) => {
-  if (element.classList.contains("display-none")) {
-    element.classList.remove("display-none");
-  }
-};
-
-const showChatCallElements = () => {
-  const finishChatButtonContainer = elements.finishChatButtonContainer;
-  const newMessageContainer = elements.newMessageContainer;
-
-  showElement(finishChatButtonContainer);
-  showElement(newMessageContainer);
-  disableDashboard();
-};
-
-const hideChatCallElements = () => {
-  const finishChatButtonContainer = elements.finishChatButtonContainer;
-  const newMessageContainer = elements.newMessageContainer;
-
-  hideElement(finishChatButtonContainer);
-  hideElement(newMessageContainer);
-  enableDashboard();
-};
-
-const showVideoCallElements = () => {
-  const videoPlaceholder = elements.videoPlaceholder;
-  const callButtons = elements.callButtonsContainer;
-  const finishChatButtonContainer = elements.finishChatButtonContainer;
-  const videoButtons = elements.videoRecordingButtonsContainer;
-  const newMessageContainer = elements.newMessageContainer;
-  const remoteVideo = elements.remoteVideo;
-
-  hideElement(videoPlaceholder);
-  showElement(callButtons);
-  showElement(finishChatButtonContainer);
-  showElement(remoteVideo);
-  showElement(videoButtons);
-  showElement(newMessageContainer);
-
-  disableDashboard();
-};
-
-const hideVideoCallElements = () => {
-  const videoPlaceholder = elements.videoPlaceholder;
-  const callButtons = elements.callButtonsContainer;
-  const finishChatButtonContainer = elements.finishChatButtonContainer;
-  const videoButtons = elements.videoRecordingButtonsContainer;
-  const newMessageContainer = elements.newMessageContainer;
-  const remoteVideo = elements.remoteVideo;
-
-  showElement(videoPlaceholder);
-  hideElement(callButtons);
-  hideElement(finishChatButtonContainer);
-  hideElement(remoteVideo);
-  hideElement(videoButtons);
-  hideElement(newMessageContainer);
-
-  enableDashboard();
+export const clearMessenger = () => {
+  const messagesContainer = elements.messagesContainer;
+  utils.removeChildren(messagesContainer);
 };

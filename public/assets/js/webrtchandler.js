@@ -178,6 +178,11 @@ export const switchBetweenCameraAndScreenSharing = async (
   }
 };
 
+export const sendMessageUsingDataChannel = (message) => {
+  const strMessage = JSON.stringify(message);
+  dataChannel.send(strMessage);
+};
+
 const sendWebRtcOffer = async () => {
   console.log(
     `\n\tSending web rtc offer method invoked\n\tConnected User Details ${JSON.stringify(
@@ -207,6 +212,23 @@ const createPeerConnection = () => {
     // iceTransportPolicy: "relay",
   };
   peerConnection = new RTCPeerConnection(configuration);
+  dataChannel = peerConnection.createDataChannel("chat");
+
+  peerConnection.ondatachannel((event) => {
+    const channel = event.dataChannel;
+
+    channel.onopen = () => {
+      console.log(
+        `\n\tPeer connection is ready to receive data channel messages`
+      );
+    };
+
+    channel.onmessage = (event) => {
+      const message = JSON.parse(event.data);
+      ui.appendMessage(message);
+      console.log(`\n\tReceived message: ${message}`);
+    };
+  });
 
   peerConnection.onicecandidate = (event) => {
     console.log(`\n\tGetting ice candidate from stun server`);
