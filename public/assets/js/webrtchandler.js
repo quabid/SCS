@@ -209,7 +209,7 @@ const createPeerConnection = () => {
         url: "stun:stun.1.google.com:13902",
       },
     ],
-    iceTransportPolicy: "relay",
+    // iceTransportPolicy: "relay",
   };
   peerConnection = new RTCPeerConnection(configuration);
   dataChannel = peerConnection.createDataChannel("chat");
