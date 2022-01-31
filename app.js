@@ -137,14 +137,14 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(PORT, ADDRESS, () => {
+server.listen(PORT, () => {
   cls();
   log(
     successMessage(
       `\n\t\tServer listening on *:${PORT}\n\t\tServer Address: ${server._connectionKey}\n\n`
     )
   );
-//  log('\n\tTokens:\n'+JSON.stringify(process.env));
+  //  log('\n\tTokens:\n'+JSON.stringify(process.env));
 });
 
 function logPeers() {
