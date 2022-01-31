@@ -1,4 +1,6 @@
-import { preOfferAnswer } from "./constants.js";
+import {
+  preOfferAnswer
+} from "./constants.js";
 import {
   appendChild,
   newElement,
@@ -36,6 +38,7 @@ export const allowStrangersToConnectCheckbox = document.querySelector(
 export const dashboardBlur = document.querySelector("#dashboard-blur");
 
 // Call container components
+export const localVideoContainer = document.querySelector(".local-video-container");
 export const videoPlaceholder = document.querySelector("#video-placeholder");
 export const remoteVideo = document.querySelector("#remote-video");
 export const localVideo = document.querySelector("#local-video");
