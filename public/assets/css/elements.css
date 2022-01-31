@@ -80,7 +80,7 @@ input[type="checkbox"]#allow-strangers-checkbox,
 .me,
 .them {
   display: inline-flex;
-  margin: 0;
+  margin: 5px 0 5px 0;
   padding: 0;
   border-radius: 15px;
   padding: 10px;
@@ -96,4 +96,11 @@ input[type="checkbox"]#allow-strangers-checkbox,
   background-color: rgb(207, 226, 37);
   color: rgb(8, 27, 49);
   align-items: flex-start;
+}
+
+.me,
+.them > p {
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
 }
