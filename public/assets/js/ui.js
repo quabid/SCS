@@ -1,4 +1,3 @@
-import { utimesSync } from "mz/fs";
 import * as constants from "./constants.js";
 import * as elements from "./elements.js";
 import * as utils from "./utils.js";
