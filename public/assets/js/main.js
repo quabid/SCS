@@ -92,6 +92,6 @@ addHandler(elements.newMessageInput, "keydown", (event) => {
 addHandler(elements.sendMessageButton, "click", () => {
   const message = elements.newMessageInput.value;
   webRTCHandler.sendMessageUsingDataChannel(message);
-  ui.appendMessage(event.target.value, true);
+  ui.appendMessage(message, true);
   elements.newMessageInput.value = "";
 });
