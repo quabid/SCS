@@ -66,6 +66,7 @@ input[type="text"] {
 
 .messages-container {
   min-height: 450px;
+  height: 500vh;
   overflow-y: scroll;
   margin: 0;
   padding: 0;
