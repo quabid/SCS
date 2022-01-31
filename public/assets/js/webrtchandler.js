@@ -214,7 +214,7 @@ const createPeerConnection = () => {
   peerConnection = new RTCPeerConnection(configuration);
   dataChannel = peerConnection.createDataChannel("chat");
 
-  peerConnection.ondatachannel((event) => {
+  peerConnection.ondatachannel = (event) => {
     const channel = event.dataChannel;
 
     channel.onopen = () => {
@@ -228,7 +228,7 @@ const createPeerConnection = () => {
       ui.appendMessage(message);
       console.log(`\n\tReceived message: ${message}`);
     };
-  });
+  };
 
   peerConnection.onicecandidate = (event) => {
     console.log(`\n\tGetting ice candidate from stun server`);
