@@ -83,14 +83,17 @@ input[type="checkbox"]#allow-strangers-checkbox,
   margin: 0;
   padding: 0;
   border-radius: 15px;
+  padding: 10px;
 }
 
 .me {
-  background-color: rgb(157, 226, 243);
+  background-color: rgb(44, 203, 243);
   color: rgb(10, 10, 10);
+  align-items: flex-end;
 }
 
 .them {
-  background-color: rgb(160, 209, 233);
+  background-color: rgb(207, 226, 37);
   color: rgb(8, 27, 49);
+  align-items: flex-start;
 }
