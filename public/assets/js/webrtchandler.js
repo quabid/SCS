@@ -215,7 +215,7 @@ const createPeerConnection = () => {
   dataChannel = peerConnection.createDataChannel("chat");
 
   peerConnection.ondatachannel = (event) => {
-    const channel = event.dataChannel;
+    const channel = event.channel;
 
     channel.onopen = () => {
       console.log(
