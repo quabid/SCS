@@ -112,8 +112,12 @@ const hideVideoCallElements = () => {
 const noVideoDevice = () => {
   const localVideoContainer = elements.localVideoContainer;
   const localVideo = elements.localVideo;
+  const personalCodeVideoButton = elements.personalCodeVideoButton;
+  const strangerCodeVideoButton = elements.strangerCodeVideoButton;
   localVideoContainer.classList.add('hide');
   localVideo.classList.add('hide');
+  personalCodeVideoButton.classList.add('hide');
+  strangerCodeVideoButton.classList.add('hide');
 };
 
 // Exported functions
