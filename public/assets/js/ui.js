@@ -9,6 +9,8 @@ const getLeftMessage = (message) => {
   const messageParagraph = utils.newElement("p");
   messageParagraph.innerHTML = message;
 
+  utils.addAttribute(messageContainer, "class", "them");
+
   utils.appendChild(messageContainer, messageParagraph);
   return messageContainer;
 };
@@ -17,6 +19,8 @@ const getRightMessage = (message) => {
   const messageContainer = utils.newElement("div");
   const messageParagraph = utils.newElement("p");
   messageParagraph.innerHTML = message;
+
+  utils.addAttribute(messageContainer, "class", "me");
 
   utils.appendChild(messageContainer, messageParagraph);
   return messageContainer;

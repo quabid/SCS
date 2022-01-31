@@ -16,15 +16,7 @@ export const setTurnServers = (servers) => {
 const defaultMediaContraints = {
   audio: true,
   video: true,
-}; /* 
-
-const configuration = {
-  iceServers: [
-    {
-      urls: "stun:stun.1.google.com:13902",
-    },
-  ],
-}; */
+};
 
 export const getLocalPreview = () => {
   navigator.mediaDevices
