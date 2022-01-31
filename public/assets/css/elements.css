@@ -76,3 +76,21 @@ input[type="checkbox"]#allow-strangers-checkbox,
   border: solid 1pt white;
   border-radius: 15px;
 } */
+
+.me,
+.them {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+}
+
+.me {
+  background-color: rgb(157, 226, 243);
+  color: rgb(10, 10, 10);
+}
+
+.them {
+  background-color: rgb(160, 209, 233);
+  color: rgb(8, 27, 49);
+}
