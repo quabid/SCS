@@ -219,11 +219,11 @@ export const updateCameraButton = (cameraActive) => {
 };
 
 export const appendMessage = (message, right = false) => {
-  const messageContainer = elements.messagesContainer;
+  const messagesContainer = elements.messagesContainer;
   const messageElement = right
     ? getRightMessage(message)
     : getLeftMessage(message);
-  utils.appendChild(messageContainer, messageElement);
+  utils.appendChild(messagesContainer, messageElement);
 };
 
 export const clearMessenger = () => {
