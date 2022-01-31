@@ -27,8 +27,8 @@ export const getLocalPreview = () => {
     })
     .catch((error) => {
       console.log(`\n\tError ocurred while attempting to access camera`);
-
       console.log("\n\t\t" + error);
+      ui.hideLocalVideoContainer();
     });
 };
 
@@ -59,7 +59,10 @@ export const handlePreOffer = (data) => {
     `\n\thandlePreoffer method invoked\n\tData:\t${JSON.stringify(data)}`
   );
 
-  const { callType, callerSocketId } = data;
+  const {
+    callType,
+    callerSocketId
+  } = data;
 
   connectedUserDetails = {
     socketId: callerSocketId,
@@ -77,7 +80,9 @@ export const handlePreOffer = (data) => {
 
 export const handlePreOfferAnswer = (data) => {
   console.log(`\n\tHandling pre offer answer\n\tData: ${JSON.stringify(data)}`);
-  const { preOfferAnswer } = data;
+  const {
+    preOfferAnswer
+  } = data;
 
   ui.removeAllDialogs();
 
@@ -138,8 +143,7 @@ export const handleWebRtcCandidate = async (data) => {
 export const switchBetweenCameraAndScreenSharing = async (
   screenSharingActive
 ) => {
-  if (screenSharingActive) {
-  } else {
+  if (screenSharingActive) {} else {
     try {
       screenSharingStream = await navigator.mediaDevices.getDisplayMedia({
         video: true,

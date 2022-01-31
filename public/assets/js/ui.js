@@ -109,6 +109,13 @@ const hideVideoCallElements = () => {
   enableDashboard();
 };
 
+const noVideoDevice = () => {
+  const localVideoContainer = elements.localVideoContainer;
+  const localVideo = elements.localVideo;
+  localVideoContainer.classList.add('hide');
+  localVideo.classList.add('hide');
+};
+
 // Exported functions
 
 export const updateLocalVideo = (stream) => {
@@ -224,13 +231,17 @@ export const updateCameraButton = (cameraActive) => {
 
 export const appendMessage = (message, right = false) => {
   const messagesContainer = elements.messagesContainer;
-  const messageElement = right
-    ? getRightMessage(message)
-    : getLeftMessage(message);
+  const messageElement = right ?
+    getRightMessage(message) :
+    getLeftMessage(message);
   utils.appendChild(messagesContainer, messageElement);
 };
 
 export const clearMessenger = () => {
   const messagesContainer = elements.messagesContainer;
   utils.removeChildren(messagesContainer);
+};
+
+export const hideLocalVideoContainer = () => {
+  noVideoDevice();
 };

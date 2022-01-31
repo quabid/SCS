@@ -37,6 +37,11 @@
   width: 100%;
 }
 
+.local-video-container.hide {
+  display: none;
+  border: none;
+}
+
 .call-buttons-container,
 .video-recording-buttons-container {
   background-color: rgba(255, 255, 255, 0.3);
