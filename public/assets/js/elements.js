@@ -70,7 +70,7 @@ export const videoRecordingButtonsContainer = document.querySelector(
 export const chatContainer = document.querySelector(".chat-container");
 
 // Messenger container components
-export const sendMessageButton = document.querySelector("send-message-button");
+export const sendMessageButton = document.querySelector("#send-message-button");
 export const newMessageInput = document.querySelector("#new-message-input");
 export const newMessageContainer = document.querySelector(
   ".new-message-container"
