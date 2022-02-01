@@ -7,6 +7,7 @@ import {
 } from "./messages.js";
 import { error, log, cls, table } from "./printer.js";
 import { parse, stringify, keys } from "./utils.js";
+import * as userManager from "./usermanager.js";
 
 export {
   errorMessage,
@@ -21,4 +22,5 @@ export {
   parse,
   stringify,
   keys,
+  userManager,
 };

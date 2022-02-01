@@ -114,10 +114,33 @@ const noVideoDevice = () => {
   const localVideo = elements.localVideo;
   const personalCodeVideoButton = elements.personalCodeVideoButton;
   const strangerCodeVideoButton = elements.strangerCodeVideoButton;
-  localVideoContainer.classList.add('hide');
-  localVideo.classList.add('hide');
-  personalCodeVideoButton.classList.add('hide');
-  strangerCodeVideoButton.classList.add('hide');
+  localVideoContainer.classList.add("hide");
+  localVideo.classList.add("hide");
+  personalCodeVideoButton.classList.add("hide");
+  strangerCodeVideoButton.classList.add("hide");
+};
+
+const yesVideoDevice = () => {
+  const localVideoContainer = elements.localVideoContainer;
+  const localVideo = elements.localVideo;
+  const personalCodeVideoButton = elements.personalCodeVideoButton;
+  const strangerCodeVideoButton = elements.strangerCodeVideoButton;
+
+  if (localVideoContainer.classList.contains("hide")) {
+    localVideoContainer.classList.remove("hide");
+  }
+
+  if (localVideo.classList.contains("hide")) {
+    localVideo.classList.remove("hide");
+  }
+
+  if (personalCodeVideoButton.classList.contains("hide")) {
+    personalCodeVideoButton.classList.remove("hide");
+  }
+
+  if (strangerCodeVideoButton.classList.contains("hide")) {
+    strangerCodeVideoButton.classList.remove("hide");
+  }
 };
 
 // Exported functions
@@ -235,9 +258,9 @@ export const updateCameraButton = (cameraActive) => {
 
 export const appendMessage = (message, right = false) => {
   const messagesContainer = elements.messagesContainer;
-  const messageElement = right ?
-    getRightMessage(message) :
-    getLeftMessage(message);
+  const messageElement = right
+    ? getRightMessage(message)
+    : getLeftMessage(message);
   utils.appendChild(messagesContainer, messageElement);
 };
 
@@ -248,4 +271,8 @@ export const clearMessenger = () => {
 
 export const hideLocalVideoContainer = () => {
   noVideoDevice();
+};
+
+export const showLocalVideoContainer = () => {
+  yesVideoDevice();
 };
