@@ -14,6 +14,7 @@ import {
   infoMessage,
   stringify,
   keys,
+  userManager,
 } from "./custom_modules/index.js";
 
 const PORT = 8443,
@@ -61,6 +62,7 @@ let connectedPeers = [];
 
 io.on("connection", (socket) => {
   connectedPeers.push({ uid: socket.id });
+  userManager.addUser(socket.id);
   console.log(`\n\tClient ${socket.id} connected`);
   logPeers();
 
@@ -106,6 +108,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log(`\n\tUser ${socket.id} disconnected`);
+    userManager.removeUserById(socket.id);
     const newConnectedPeers = connectedPeers.filter(
       (peer) => peer.uid !== socket.id
     );
@@ -149,8 +152,10 @@ server.listen(PORT, () => {
 
 function logPeers() {
   console.log(infoMessage(`\n\tConnected Peers: ${connectedPeers.length}`));
-  if (connectedPeers.length > 0) {
-    connectedPeers.forEach((p) => console.log(`\t\t${p.uid}`));
+  const users = userManager.getUsers();
+
+  if (users.length > 0) {
+    users.forEach((p) => console.log(`\t\t${p.uid}`));
   }
 }
 
