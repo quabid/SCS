@@ -151,8 +151,8 @@ server.listen(PORT, () => {
 });
 
 function logPeers() {
-  console.log(infoMessage(`\n\tConnected Peers: ${connectedPeers.length}`));
   const users = userManager.getUsers();
+  console.log(infoMessage(`\n\tConnected Peers: ${users.length}`));
 
   if (users.length > 0) {
     users.forEach((p) => console.log(`\t\t${p.uid}`));

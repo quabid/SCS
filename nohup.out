@@ -1,0 +1,40 @@
+[92m
+		Server listening on *:8443
+		Server Address: 4:0.0.0.0:8443
+
+[39m
+
+	Client K7On0RVeHFbPNOBgAAAF connected
+[47m[90m
+	Connected Peers: 1[39m[49m
+		K7On0RVeHFbPNOBgAAAF
+[92m
+		Server listening on *:8443
+		Server Address: 4:0.0.0.0:8443
+
+[39m
+
+	Client zf-4G4-ibZIYO76iAAAB connected
+[47m[90m
+	Connected Peers: 1[39m[49m
+		zf-4G4-ibZIYO76iAAAB
+
+	User zf-4G4-ibZIYO76iAAAB disconnected
+[47m[90m
+	Connected Peers: 0[39m[49m
+
+	Client rKnV7r7CQuCKj_i0AAAD connected
+[47m[90m
+	Connected Peers: 1[39m[49m
+		rKnV7r7CQuCKj_i0AAAD
+[92m
+		Server listening on *:8443
+		Server Address: 4:0.0.0.0:8443
+
+[39m
+
+	Client 4aFlE38OhMyA4fAzAAAC connected
+[47m[90m
+	Connected Peers: 1[39m[49m
+		4aFlE38OhMyA4fAzAAAC
+/home/rick/bin/run.sh: line 3: 1547105 Hangup                  sudo /home/rick/.nvm/versions/node/v17.0.1/bin/node app.js
