@@ -30,11 +30,11 @@
 /* Local video container */
 .local-video-container {
   position: absolute;
-  display: inline-block;
+  display: inline-flex;
   margin: 0;
   padding: 0;
   top: 0;
-  left: 5px;
+  left: 0;
   border: solid 1pt white;
   border-radius: 15px;
 }
