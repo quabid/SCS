@@ -27,14 +27,13 @@
   padding: 10px;
 }
 
-/* Call container */
-.call-container {
-  position: relative;
-}
-
+/* Local video container */
 .local-video-container {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  width: 25%;
+  height: 20%;
+  top: 0;
+  left: 5px;
 }
 
 .local-video-container.hide {
