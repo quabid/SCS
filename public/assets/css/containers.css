@@ -30,7 +30,6 @@
 /* Local video container */
 .local-video-container {
   position: absolute;
-  display: inline-grid;
   margin: 0;
   padding: 0;
   top: 0;
