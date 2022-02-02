@@ -55,6 +55,11 @@ input[type="checkbox"]#allow-strangers-checkbox,
   border-radius: 15px;
 }
 
+.local-video {
+  width: 25px;
+  height: 25px;
+}
+
 /* .local-video {
   width: 100%;
   height: 100%;

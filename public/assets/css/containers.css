@@ -30,8 +30,6 @@
 /* Local video container */
 .local-video-container {
   position: absolute;
-  width: 25px;
-  height: 25px;
   top: 0;
   left: 5px;
 }
